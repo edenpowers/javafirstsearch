@@ -3,6 +3,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        //Test case using the graph here https://en.wikipedia.org/wiki/File:Graph.traversal.example.png
+        //Note this program currently only supports trees, and doesn't support weights
         Node f = new Node("f");
         ArrayList<Node> x = new ArrayList<Node>();
         x.add(f);
@@ -22,11 +24,10 @@ public class Main {
         w.add(e);
         Node a = new Node("a", w);
         Search search = new Search();
-        ArrayList<Node> al = search.runSearch(a, d);
-        for(Node i:al){
-            System.out.println(i.getID());
+        ArrayList<Node> solution = search.runSearch(a, d);
+        for(Node curNode:solution){
+            System.out.println(curNode.getID());
         }
-    }
-    
-    
+    }   
 }
+
