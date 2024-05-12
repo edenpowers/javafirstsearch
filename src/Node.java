@@ -17,6 +17,9 @@ public class Node {
     public Node[] getChildren(){
         return children;
     }
+    public void setChildren(Node[] c){
+        children = c;
+    }
     public String getID(){
         return id;
     }

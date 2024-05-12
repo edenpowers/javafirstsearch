@@ -1,6 +1,8 @@
 package src;
 import java.util.ArrayList;
-
+/*
+ CLASS IS DEPRECATED DO NOT USE
+*/
 public class Search {
     private ArrayList<Node> discoveredNodes = new ArrayList<Node>();
     
