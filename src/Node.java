@@ -1,22 +1,27 @@
 package src;
-import java.util.ArrayList;
 
 public class Node {
-    private ArrayList<Node> children;
-    public String id;
-    public Node(String i){
+    private Node[] children;
+    private String id;
+    private double weight;
+    public Node(String i, double w){
         id = i;
-        children = new ArrayList<Node>();
+        children = new Node[0];
+        weight = w;
     }
-    public Node(String i, ArrayList<Node> c){
+    public Node(String i, double w, Node[] c){
         id = i;
         children = c;
+        weight = w;
     }
-    public ArrayList<Node> getChildren(){
+    public Node[] getChildren(){
         return children;
     }
     public String getID(){
         return id;
+    }
+    public double getWeight(){
+        return weight;
     }
 }
 
