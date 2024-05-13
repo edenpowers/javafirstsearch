@@ -12,31 +12,39 @@ Node x = new Node("id");
 ```
 Node with children:
 ```java
-ArrayList<Node> children = new ArrayList<Node>();
-Node x = new Node("id",children);
+Node[] children = new Node[]{x};
+Node y = new Node("id",children);
 ```
 getChildren:
 ```java
-ArrayList<Node> children = x.getChildren();
+Node[] children = x.getChildren();
+```
+setChildren:
+```java
+x.setChildren(new Node[] {y});
 ```
 getID:
 ```java
 String id = x.getID();
 ```
-### Search
-New Search:
+### Graph
+New Graph (empty):
 ```java
-Search search = new Search();
+Graph graph = new Graph();
 ```
-runSearch:
+New Graph (with nodes):
 ```java
-Node end = new Node("end");
-ArrayList<Node> startChildren = new ArrayList<Node>();
-startChildren.add(end);
-Node start = new Node("start", startChildren);
-ArrayList<Node> path = search.runSearch(start, end);
+Graph graph = new Graph(new Node[] {x, y});
+```
+Run search:
+```java
+//Searches from x to y
+Optional<Stack<Node>> path = graph.search(x, y);
+```
+Print nodes in graph (toString):
+```java
+System.out.println(graph);
 ```
 ### Notes
-- Each new `Search` should take place in a new `Search` object, I'll make it so the `runSearch()` method doesn't have side effects in a future version.
-- This program only supports tree structures for now, but you can have one `Node` be a child of many other `Node`s
-- The final `ArrayList<Node>` is in opposite order of the path. This means the target element is first, and the start element is last.
+- The `Optional<T>` type is used to safely store failed searches, in which case the `Optional<T>` will not contain a type. The `Optional<T>` docs are [here](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html).
+- The final `Optional<Stack<Node>` is in opposite order of the path. This means the target element is first, and the start element is last.
