@@ -13,6 +13,9 @@ public class Graph {
     public Optional<Stack<Node>> search(Node current, Node target){
         return search(current, target, new ArrayList<Node>());
     }
+    public void setNodes(Node[] n){
+        nodes = n;
+    }
     private Optional<Stack<Node>> search(
         Node current, Node target, ArrayList<Node> discovered
     ){
